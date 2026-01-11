@@ -1,0 +1,26 @@
+[package]
+name = "study-monitor"
+version = "1.0.0"
+description = "桌面学习监督系统"
+authors = ["you"]
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "1.5", features = [] }
+
+[dependencies]
+tauri = { version = "1.5", features = [ "http-all", "shell-open", "system-tray", "notification"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+rusqlite = { version = "0.30", features = ["bundled"] }
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.6", features = ["v4"] }
+tokio = { version = "1", features = ["full"] }
+warp = "0.3"
+parking_lot = "0.12"
+winrt-notification = "0.5"
+auto-launch = "0.5"
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]
